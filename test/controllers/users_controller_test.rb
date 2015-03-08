@@ -6,9 +6,11 @@ class UsersControllerTest < ActionController::TestCase
   end
 
   test "should get index" do
-    get :index
+    get :index, :format => :json, :name =>@user.name
     assert_response :success
-    assert_not_nil assigns(:users)
+    body = JSON.parse(@response.body)
+		assert_equal "One", body[0]["name"]
+		assert_equal "MyString", body[1]["name"]
   end
 
   test "should get new" do

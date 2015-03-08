@@ -1,0 +1,12 @@
+<div ng-app="angular_app">
+  <div class="view-container">
+		<div ng-view class="view-frame animate-view"></div>
+		<li ng-repeat="user in users">
+    <h1 ng-if="name">{{users.name}}</h1>
+		</li>
+  </div>
+</div>
+
+<br>
+
+<%= link_to 'New User', new_user_path %>

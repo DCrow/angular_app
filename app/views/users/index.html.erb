@@ -1,28 +1,11 @@
-<p id="notice"><%= notice %></p>
-
-<h1>Listing Users</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Password</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.password %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div ng-app="angular_app">
+  <div class="view-container">
+		<div ng-view class="view-frame animate-view"></div>
+		<li ng-repeat="user in users">
+    <h1 ng-if="name">Hello, {{user.name}}</h1>
+		</li>
+  </div>
+</div>
 
 <br>
 

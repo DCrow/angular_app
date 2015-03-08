@@ -1,0 +1,16 @@
+angular_app = angular.module('angular_app',[
+	'templates',
+	'ngRoute',
+	'ngResource',
+	'controllers',
+])
+
+
+
+controllers = angular.module('controllers',[])
+controllers.controller("UsersController", [ '$scope', '$routeParams', '$location',
+  ($scope,$routeParams,$location)->
+	
+	$scope.message = "HEY HEY"
+	$scope.users = Users.get()
+])
