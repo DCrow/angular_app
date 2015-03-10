@@ -14,6 +14,16 @@ controllers.controller("UsersController", [
 		password: ''
 	};
 	$scope.submitNewUser = function() {
-				$http.post('/users', this.newUser);
-	}
+		$http.post('/users', this.newUser).
+			success(function(data, status) {
+				if (status == 201) {
+					$scope.successMsg = "Success"
+				} else {
+				 	$scope.successMsg = "Not sure if Success"
+				}
+			}).
+			error(function(data, status) {
+				$scope.successMsg = "Failure"
+		});
+	};
 }]);

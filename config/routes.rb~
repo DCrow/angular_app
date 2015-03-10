@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
   #get 'home/index'
-	#get '*path', to: 'home#index'
-	#get "/*path" => redirect("/?goto=%{path}")
-  #resources :users
+	#get '*path' => 'home#index'
+	get "/*path" => redirect("/?goto=%{path}")
+  resources :users
 	#get 'All' => 'users#index'
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

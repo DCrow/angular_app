@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   #get 'home/index'
-	#get '*path', to: 'home#index'
+	#get '*path' => 'home#index'
 	#get "/*path" => redirect("/?goto=%{path}")
   resources :users
 	#get 'All' => 'users#index'

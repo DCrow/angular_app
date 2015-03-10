@@ -7,7 +7,6 @@ controllers.controller("UsersController", [
  '$http',
   function($scope, $routeParams, $location, $resource, $http){
 	var Users = $resource('/users/:id', {id: '@id'})
-	var Success = $resource('/users',{})
 	$scope.message = "HEY HEY"
 	$scope.users = Users.query()
 	$scope.newUser = {
@@ -15,7 +14,16 @@ controllers.controller("UsersController", [
 		password: ''
 	};
 	$scope.submitNewUser = function() {
-				$http.post('/users', this.newUser);
-				$scope.success = Success.query();
-	}
+		$http.post('/users', this.newUser).
+			success(function(data, status) {
+				if (status == 201) {
+					$scope.successMsg = "Success"
+				} else {
+				 	$scope.successMsg = "Not sure if Success"
+				}
+			}).
+			error(function(data, status) {
+				$scope.successMsg = "Failure"
+		});
+	};
 }]);

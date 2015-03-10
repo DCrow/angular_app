@@ -6,14 +6,17 @@ var angular_app = angular.module('angular_app', [
 ]);
 
 angular_app.config(function($locationProvider, $routeProvider) {
-		$locationProvider.html5Mode(true);
+		$locationProvider.html5Mode({
+  		enabled: true,
+  		requireBase: false
+		});
 		$routeProvider
-			.when('/', {
-				templateUrl: 'templates/index.html',
+			.when('/users', {
+				templateUrl: 'index.html',
 				controller: 'UsersController',
 			})
 			.when('/users/new', {
-				templateUrl: 'templates/new.html',
+				templateUrl: 'new.html',
 				controller: 'UsersController'
 			})
 });

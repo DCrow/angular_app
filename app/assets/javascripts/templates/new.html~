@@ -3,8 +3,8 @@
 <form ng-submit="submitNewUser()" ng-controller="UsersController">
 	Name: <input type="text" name="nameInput" ng-model="newUser.name"/>
 	Password: <input type="password" name="passInput" ng-model="newUser.password"/>
-	<input type="submit" id="submit" value="Submit "/>
-	<p>{{successMsg}}</p>
+<input type="submit" id="submit" value="Submit "/>
+	{{successMsg}}
 </form>
 
 
