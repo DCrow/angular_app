@@ -1,20 +1,22 @@
-var angular_app = angular.module('angular_app',[
+var angular_app = angular.module('angular_app', [
 	'templates',
 	'ngRoute',
 	'ngResource',
 	'controllers',
 ]);
 
+angular_app.config(function($locationProvider, $routeProvider) {
+		$locationProvider.html5Mode(true);
+		$routeProvider
+			.when('/', {
+				templateUrl: 'templates/index.html',
+				controller: 'UsersController',
+			})
+			.when('/users/new', {
+				templateUrl: 'templates/new.html',
+				controller: 'UsersController'
+			})
+});
 
 
-var controllers = angular.module('controllers',[])
-controllers.controller("UsersController", [
- '$scope',
- '$routeParams',
- '$location',
- '$resource',
-  function($scope, $routeParams, $location, $resource){
-	var Users = $resource('/users/:id', {id: '@id'})
-	$scope.message = "HEY HEY"
-	$scope.users = Users.query()
-}]);
+

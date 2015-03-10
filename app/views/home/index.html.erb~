@@ -1,11 +1,24 @@
 <div class="container-fluid" ng-app="angular_app">
+	<a href="/" data-method="get" target="_self">Home </a> | 
+    <a href="/users/new" data-method="get" target="_self">New Users</a> | 
+</div>
+
+<div class="container-fluid" ng-app="angular_app">
   <div class="panel panel-success">
     <div ng-controller="UsersController">
 			<li ng-repeat="user in users">
-      	<h1>Hello, {{user.name}}</h1>
+      	<h1>Hello, {{user.name}}. My password is {{user.password}}</h1>
 			</li>
 			<h2> {{message}}</h2>
     </div>
   </div>
 </div>
 
+<h1>New User</h1>
+
+<form ng-submit="submitNewUser()" ng-controller="UsersController">
+	Name: <input type="text" name="nameInput" ng-model="newUser.name"/>
+	Password: <input type="password" name="passInput" ng-model="newUser.password"/>
+<input type="submit" id="submit" value="Submit "/>
+	{{success}}
+</form>
