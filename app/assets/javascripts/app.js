@@ -6,10 +6,11 @@ var angular_app = angular.module('angular_app', [
 ]);
 
 angular_app.config(function($locationProvider, $routeProvider) {
-		$locationProvider.html5Mode({
-  		enabled: true,
-  		requireBase: false
-		});
+		$locationProvider
+			.html5Mode({
+	  		enabled: true,
+	  		requireBase: false
+			})
 		$routeProvider
 			.when('/users', {
 				templateUrl: 'index.html',
@@ -19,6 +20,9 @@ angular_app.config(function($locationProvider, $routeProvider) {
 				templateUrl: 'new.html',
 				controller: 'UsersController'
 			})
+			.otherwise({
+        redirectTo: '/'
+      })
 });
 
 
